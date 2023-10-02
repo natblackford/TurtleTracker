@@ -26,3 +26,14 @@ ob_lon = lineData[6]
 #print(ob_lon)
 
 
+print(fileObj.readline())
+fileObj.seek(0)
+
+linelist = fileObj.readlines(); print(linelist[-1])
+fileObj.close()
+
+newFile = open('newfile.txt', 'w')
+newFile.write("Hello World\nIt's me: Nat")
+newFile.close()
+
+open('newfile.txt','a').write("\nSee what I did")
