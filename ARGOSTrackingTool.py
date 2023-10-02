@@ -8,32 +8,30 @@
 # Date: 10/2/2023
 #------------------------------------------------------------------------------------
 
-#Parse Data
-lineString = "20616	29051	7/3/2003 9:13	3	66	33.898	-77.958	27.369	-46.309	6	0	-126	529	3	401 651134.7	0"
-#print(lineString[0])
+#Create a variable pointing to the data file
+file_name = './data/raw/sara.txt'
 
-lineData = lineString.split(    )
-#print(lineData[0])
-#print(lineData)
-#assigning variables to objects in the list
+#Create a file object from the file
+file_object = open(file_name,'r')
 
-ob_id = lineData[0]
-ob_date = lineData[2]
-ob_lc= lineData[3]
-ob_lat = lineData[5]
-ob_lon = lineData[6]
+#Read contents of file into a list
+line_list = file_object.readlines()
 
-#print(ob_lon)
+#Close the file
+file_object.close()
 
+#Pretend we read one line of data from the file
+lineString = line_list[300]
+print(lineString)
+#Split the string into a list of data items
+lineData = lineString.split()
 
-print(fileObj.readline())
-fileObj.seek(0)
+#Extract items in list into variables
+record_id = lineData[0]
+obs_date = lineData[2]
+obs_lc = lineData[4]
+obs_lat = lineData[6]
+obs_lon = lineData[7]
 
-linelist = fileObj.readlines(); print(linelist[-1])
-fileObj.close()
-
-newFile = open('newfile.txt', 'w')
-newFile.write("Hello World\nIt's me: Nat")
-newFile.close()
-
-open('newfile.txt','a').write("\nSee what I did")
+#Print the location of sara
+print(f"Record {record_id} indicates Sara was seen at lat:{obs_lat},lon:{obs_lon} on {obs_date}")
