@@ -22,7 +22,7 @@ file_object.close()
 
 #Pretend we read one line of data from the file
 lineString = line_list[300]
-print(lineString)
+
 #Split the string into a list of data items
 lineData = lineString.split()
 
