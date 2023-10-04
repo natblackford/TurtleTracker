@@ -8,6 +8,9 @@
 # Date: 10/2/2023
 #------------------------------------------------------------------------------------
 
+# Ask the user for a date, specifying the format
+user_date = "7/3/2003" #input("Enter a date (M/D/YYYY):")
+
 #Create a variable pointing to the data file
 file_name = './data/raw/sara.txt'
 
@@ -39,16 +42,20 @@ for lineString in line_list:
     obs_lat = lineData[6]
     obs_lon = lineData[7]
 
+#filter to higher quality observations
+    if obs_lc in ("1","2","3"):
     #Add date and location to respective dictionaries
-    date_dict[record_id] = obs_date
-    location_dict[record_id] = (obs_lat, obs_lon)
+        date_dict[record_id] = obs_date
+        location_dict[record_id] = (obs_lat, obs_lon)
 
     #Print the location of sara
-    print(f"Record {record_id} indicates Sara was seen at lat:{obs_lat},lon:{obs_lon} on {obs_date}")
+        #print(f"Record {record_id} indicates Sara was seen at lat:{obs_lat},lon:{obs_lon} on {obs_date}")
 
 #testing functionality
-firstkey = list(location_dict.keys())[0]
-print(firstkey)
-print(location_dict[firstkey])
-print(date_dict[firstkey])
-print(date_dict['24719'])
+#firstkey = list(location_dict.keys())[0]
+#print(firstkey)
+#print(location_dict[firstkey])
+#print(date_dict[firstkey])
+#print(date_dict['24719'])
+
+
